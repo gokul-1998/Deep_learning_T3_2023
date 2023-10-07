@@ -1,6 +1,6 @@
 ### Module 2.2 McCulloch Pitts Neuron
 
-- the text inputs can be exitatory or inhibitory , the exitatory inputs are positive and the inhibitory inputs are negative , the exitatory inputs are excitatory and the inhibitory inputs are inhibitory
+- the text inputs can be exitatory or inhibitory , the exitatory inputs are positive and the inhibitory inputs are negative , 
 - if inhibitory input is 1, then the output is always 0 no matter what the other inputs are
 - its like a party spoiler , if one person is not having fun then the whole party is not fun
 - if i have fever, then i am cannot go to work, even though i have a lot of work to do,or there is party at work, or any good thing is happening at work, i cannot go to work
