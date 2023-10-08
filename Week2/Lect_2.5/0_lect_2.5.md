@@ -1,0 +1,37 @@
+## Module 3.3 Learning Parameters: (Infeasible) guess work
+- ![](2023-10-08-09-40-14.png)
+- this is the supervised ML setup , which has N inputs, have some weights and i have some output
+- i want to learn the parameters w, using an algo , given the data, and using some objective function
+- ![](2023-10-08-09-42-40.png)
+- ![](2023-10-08-10-35-21.png)
+- imdb rating will be from 0-1, (0.5,0.7,0.2... )
+- N -> no of training pairs
+- n -> no of inputs
+- n=1 in this case
+- objective is to find (w,b) such that the error is minimized
+- ![](2023-10-08-10-38-48.png)
+- average diff of predictions from the true values, for all the training points
+- Lets say we are given only two training points
+- using the given point we want to learn the parameters w,b
+- ![](2023-10-08-10-42-24.png)
+- ![](2023-10-08-10-44-11.png)
+- As usual we never know what w and b are, so we shall start with some random w and b
+- ![](2023-10-08-11-12-35.png)
+- lets start with w=3, b=-1 and intuitively also we can see that this is not a good fit, why?
+    - because both the points are not on the line, so the function is bad, But how do we quantify this?
+    - we could  look at the loss function, 
+    - ![](2023-10-08-16-41-03.png)
+- ![](2023-10-08-16-42-09.png)
+- ![](2023-10-08-16-42-38.png)
+- now we are able to quantify how bad the function is,but we want the loss function to be as close to 0 as possible, but we can settle for approx 0 also, so lets try for other values of w and b also
+- ![](2023-10-08-16-45-08.png)
+- all these are guess work, which is not a good way to learn the parameters
+- ![](2023-10-08-16-45-59.png)
+- w, b and vertical axis is the error(loss)
+- we can plot this using computer,
+- this is okay for this toy example, but as the number of 
+- ![](2023-10-08-16-48-49.png)
+- plotting the errir surface in real data is not possible
+- ![](2023-10-08-16-49-43.png)
+- we just understood the sense of what is required when we hit (0.94,-0.94), i,e we have to increase w and decrease b, and we continue,
+- dinally we reach (1.78,- 2.27)

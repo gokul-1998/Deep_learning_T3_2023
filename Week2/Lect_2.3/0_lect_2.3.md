@@ -1,0 +1,70 @@
+## Sigmoid Neuron
+- ![](2023-10-08-01-58-03.png)
+- 'visualize backpropagation' by Ryan Harris, https://www.youtube.com/watch?v=Ilg3gGewQ5U
+- 'http://neuralnetworksanddeeplearning.com/chap4.html'
+
+- ## module 3.1 Sigmoid Neuron
+- boolean functions
+    - y=f(x), where both x and y are binary(boolean)
+
+- we are trying to find the quantity of oil that is present in a particular region, so that we can decide whether to drill or not 
+- we ahve lots of factors like
+    - salinity
+    - density of water
+    - pressure at that location
+    - temperature
+    - marine diversity
+- all of the above are real values
+- ![](2023-10-08-02-04-44.png)
+- y belongs to R
+
+- another example is, what is the interest rate we should set for a certain customer as a bank, depends on 
+    - past history
+    - income
+    - age
+    - family size
+    - was there any default in the past
+    - etc..
+- images, are pixel values, that tell us the intensity of the pixel, and we have 3 channels, red, green and blue, and each channel has a value between 0 and 255
+- ![](2023-10-08-02-07-58.png)
+- ![](2023-10-08-02-09-17.png)
+- we want yhat approx y, where yhat is the predicted value, and y is the actual value
+- ![](2023-10-08-02-10-54.png)
+- ![](2023-10-08-02-11-09.png)
+- single input perceptron looks like below,
+- input, weight , output, bias or threshold,=0.5, -w0=0.5
+- the thresholding logic 
+- ![](2023-10-08-02-13-26.png)
+- ![](2023-10-08-02-14-32.png)
+- this is what a perceptron function looks like,    
+- ![](2023-10-08-02-15-58.png)
+- sigmoid is a family of functions, ,
+- we have several sigmoid functions,
+    - tanh
+    - logistic
+    - arctan
+    - etc..
+- ![](2023-10-08-02-18-02.png)
+- ![](2023-10-08-02-18-11.png)
+    - the denominator is weighted sum of the inputs, and the threshold is the bias
+- lets look at this function more carefully , what happrns when wt.x is very large, and tends to infinity
+- ![](2023-10-08-02-20-28.png)
+- ![](2023-10-08-02-20-45.png)
+- if wtx=0, then 1/(1+e^0)=0.5
+![](2023-10-08-02-22-29.png)
+- in this case w0 =0, but we can have w0 as any value, and we can adjust the threshold accordingly and the graph will shift accordingly
+- we no longer see sharp transitions, we see a smooth transition
+- ![](2023-10-08-02-23-20.png)
+- since the values are between 0 and 1, we can interpret the output as a probability
+- now the output of sigmoid function we can interpret as a probability
+- if it gives .49, we can say that there is 49% chance that the output is 1, and 51% chance that the output is 0,
+- earlier we were saying that there was 0 chance, this makes more sense
+-  ![](2023-10-08-02-26-39.png)
+    - we see that the inputs, output and the weights are all similar , except fir the function
+- the step function is obvious because of the formula we were using, 
+- now we have smoother formula
+- ![](2023-10-08-02-28-20.png)
+- ![](2023-10-08-02-28-36.png)
+- why do we care about continuity and differentiability?    
+- for large part of this course , calculus will be used
+- derivatives are used to update the weights

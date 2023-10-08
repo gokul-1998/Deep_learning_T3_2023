@@ -1,0 +1,39 @@
+## 2.9 Representation power of Multilayer Network of Sigmoid Neurons: 1D functions
+
+- ![](2023-10-08-19-21-06.png)
+- if you have an n variable inputs, then we would have a boolean functions of n variables, and truth table, no matter what the tt is,
+- we know that for an n variable input , we could have `2**2**n` different boolean functions, for any of these boolean functions, we could construct a network  that computes that function.
+- every perceptron was specializing for a particular boolean function, and we could construct a network that computes any boolean function.
+- ![](2023-10-08-19-24-40.png)
+- epsilon = precision
+- ![](2023-10-08-19-27-15.png)
+- we can come up with any network such that , the difference between the two output, would be less than epsilon.
+- as the epsilon becomes smaller, the network becomes more complex.
+- ![](2023-10-08-19-27-56.png)
+- this is the famous universal approximation theorem.
+- ![](2023-10-08-19-30-14.png)
+- ![](2023-10-08-19-30-35.png)
+- http://neuralnetworksanddeeplearning.com/chap4.html
+- ![](2023-10-08-19-31-53.png)
+- ![](2023-10-08-19-33-25.png)
+- the above is an example of a poorly approxiated function  , by towers 
+- ![](2023-10-08-19-34-15.png), 
+- as we increase the number of towers , we get a better approximation.
+- ![](2023-10-08-19-39-57.png)
+- ![](2023-10-08-19-40-39.png)
+- we have an input x, and we have two parameters, w1,b1 and w2,b2
+- h11, h12 are sigmoid neurons, , they are gonna take input x and return 1/1+e^-(w1x+b1) and 1/1+e^-(w2x+b2) 
+- ![](2023-10-08-19-44-32.png)
+- here h11 is a straight line because w1=w2=0 and b1=b2=0, if we substitute these values in the sigmoid function, we get 1/1+e^0 = 1/2 = 0.5, ie for all the values of x, we get 0.5, which is a straight line.
+- if we increase w1, it will increase the slope of the line, and if we increase b2, it will shift the line to the left.
+- https://youtu.be/xHSErLWAlbU?t=1106
+- ![](2023-10-08-19-46-48.png)
+- ![](2023-10-08-19-50-08.png)
+- formation of tower function
+- ![](2023-10-08-19-49-47.png)
+- now we got a network, which can produce a tower function, and not just any network, it uses our sigmoid function, we just have to set the w's to high values, so that we get a step like function , and we can control the b's to control the width of the tower.
+- if b goes small ofcourse, the tower becomes narrow and height also reduces, and if b goes large, the tower becomes wide.
+- ![](2023-10-08-19-54-44.png)
+- we have x, and we have two sigmoid neurons, the first will give a step function, because we set the w to very high, so will the second neuron
+- subtract one from the other
+- ![](2023-10-08-19-57-32.png)
