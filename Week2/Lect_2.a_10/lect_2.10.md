@@ -5,3 +5,36 @@
 - let orange points be the place where we find oil and blue points be the place where we dont find oil.
 - for all the blue points its predicting 0, and for all the orange points its predicting 1., see the below figure.
 - ![](2023-10-08-20-02-10.png)
+- ![](2023-10-09-07-01-27.png)
+    - for this we want a 2d tower
+- ![](2023-10-09-07-06-59.png)
+- w1 controls the slope in left to right direction
+- ![](2023-10-09-07-03-59.png)
+- w2 controls the slope in up to down direction
+- ![](2023-10-09-07-04-21.png)
+- b helps in movement along the direction
+- if we increase both w1 and w2, something interesting happens, it rotates in clock or anti clock wise direction.
+- ![](2023-10-09-07-06-17.png)
+
+- Now lets try to construct a tower in 3d
+- ![](2023-10-09-07-08-38.png)
+- with h11 and h12
+- ![](2023-10-09-07-09-14.png)
+- subtract both to get a tower function
+- ![](2023-10-09-07-09-54.png)
+- ![](2023-10-09-07-11-48.png)
+    - we have played with w1 and w3, and kept w2 and w4 =0
+    - we want a closed tower on all the sides
+    - ![](2023-10-09-07-13-16.png)
+    - ![](2023-10-09-07-15-08.png)
+    - the walls are closed here
+    - in the middle both are 1 so if we add them up , we will,get 2, an elevation will appear   
+    - ![](2023-10-09-07-19-21.png)
+    - the structure sitting at the top is closed from all sides
+    - we have 3 levels of output
+        - 0,1,2 and we want to retain things which are greater than 1
+        - so we pass in to a sigmoid neuron with threshold 1,
+        - ![](2023-10-09-07-22-34.png)
+- finally we constructed a 2d tower with a network like this,
+    - ![](2023-10-09-07-23-16.png)
+- ![](2023-10-09-07-26-53.png)
