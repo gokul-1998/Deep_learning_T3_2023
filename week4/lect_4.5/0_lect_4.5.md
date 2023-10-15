@@ -1,0 +1,22 @@
+## 4.5 Stochastic vs Batch Gradient
+- ![](2023-10-14-14-29-29.png)
+- ![](2023-10-14-14-29-56.png)
+- the for loop is looking at all the training data, computing the gradient and accumulating it in the sum dw and db and then comes out of the loop and then  updates the weights
+- why are we going through all the training data?
+    - because this is true gradient descent
+    - because we want to compute the gradient of the loss function wrt w and b
+    - and we want to compute it for all the training examples
+    - and then we want to average it
+    - and then we want to update the weights
+    - ![](2023-10-14-14-33-30.png)
+    - no approximation is being made here
+    - hence the theoritical guarantee holds(in other words each step is guaranteed to reduce the loss function)
+    - ![](2023-10-14-14-35-44.png)
+    - can we do better, yes using stochastic gradient descent
+    - ![](2023-10-14-14-37-35.png)
+    - ![](2023-10-14-14-40-46.png)
+    - ![](2023-10-14-14-41-38.png)
+    - ![](2023-10-14-14-44-08.png)
+    - ![](2023-10-14-14-45-53.png)
+    - ![](2023-10-14-14-47-12.png)
+    - ![](2023-10-14-14-48-09.png)
