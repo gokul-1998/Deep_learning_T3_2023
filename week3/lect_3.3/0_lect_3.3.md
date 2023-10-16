@@ -17,6 +17,7 @@
     - we need to know about cross entropy
     - https://www.youtube.com/watch?v=sbvv-uQmwVY
     - additional link to cross entropy (https://www.youtube.com/watch?v=ErfnhcEV1O8)
+    
 
 - given an image ,we want to classify it into one of 4 classes, we want to predict the probability of each of the 4 classes, and we want to choose the class with the highest probability
 - how do we choose an output function such that they sum to 1, and they are all positive ,ie it should be a probability distribution
