@@ -1,0 +1,55 @@
+## L7.5 MaxOut
+
+- ![](2023-11-19-20-31-31.png)
+## Maxout activation
+
+- we have discussed about model averaging where we have a dataset and create subdatasets by sampling with replacement
+- lets say we have 1000 datapoints, we want to create another dataset of 1000 datapoints 
+  - how we will do this is, we will take one datapoint from training dataset make a copy and , put it in this bucket, 
+  - ![](2023-11-19-20-47-43.png)
+  - again sample one randomly, make a copy and put it in this bucket,
+  - keep doing this until we have 1000 datapoints in this bucket
+- we are going to create multiple such buckets of the original dataset
+- each of these training sets will then be used to train a model, and models will have their own parameters w1,w2,..wk
+- here consider w as a collection of all the parameters of the model
+- here w1 ,w2,..wk are the parameters of the k models, each trained on a different version of the training set
+- each of these models have same size, but it contains sampling with replacement
+- it is shown that if we do this sampling with replacement, around 36% of the samples will be duplicates, and this makes sense because we are sampling with replacement
+- There is a study , that shows how many duplicates we can have in a dataset of size n, if we sample with replacement
+- Now we have 1000 datapoints but there are duplicates of that , so the model has better chance on overfitting  on the training set
+  - because now we have fewer unique datapoints
+  - and we are training on the same datapoints again and again
+  - ![](2023-11-19-20-52-58.png)
+  - ![](2023-11-19-20-53-53.png)
+  - this is what happens in Model Averaging
+  - In DNN the way we have done that was using Dropout
+  - we knew it was difficult to train multiple models, so Dropout was a substitute for getting the effect of model average
+-in dropouts we dont have to train multiple models, we just have to train one model
+- 
+- In dropouts what is happening is that you have these multiple submodels, each submodel is getting sampled rarely, because there are exponentially large no of submodels, so each submodel is getting sampled rarely, so each submodel is not getting the chance to overfit on the specific portions of the data, because it is hardly seeing the data once
+- it may not even see it once
+- so in case of dropout , whenever we do an update, we have to do a larger update, because this datapoint is sensitive, we should try to do a larger update
+- ![](2023-11-19-21-06-39.png)
+- maybe you could increase the learning rate, or you could do a larger update
+- How do we close this gap between the two models?
+  - this is where MaxOut comes into picture
+  - ![](2023-11-19-21-10-32.png)
+  - lets say we have these two outputs a21 and a22 have the following outputs , they are both greater than 0, because its a ReLU activation, so we want both of them to be active and not dead
+    - if a21 is less than a22, it means that a22 is reacting more positively to this training sample
+    - it is firing for this training sample better, because its output  is high
+    - can i update a22 better as updating this right because  this is reacting weekly
+- ![](2023-11-19-21-19-08.png)
+- ![](2023-11-19-21-20-25.png)
+- here we chose two models, we can choose more than two models, we can choose k models and still pick the max
+- ![](2023-11-19-21-27-06.png)
+  - black nodes completely not participating in output
+  - ![](2023-11-19-21-28-30.png)
+- ![](2023-11-19-21-28-46.png)
+- ![](2023-11-19-21-30-32.png)
+- we take the strong and drop out the week ones
+- ![](2023-11-19-21-49-54.png)
+- Maxout neuron, affine transformation and not linear, because we have a +b there
+- we can think of maxout as a generalization of ReLU(any version - leaky, parametric, etc..)
+- Relu is a special case of maxout, one of the maxout neuron is a relu neuron and the other one is a constant 0
+- ![](2023-11-19-21-54-41.png)
+- ![](2023-11-19-21-58-11.png)

@@ -15,3 +15,33 @@
 - ![](2023-10-30-08-32-06.png)
 - we can see that history is exponentially decaying, because  earlier we were taking the whole of b0**2, but now we are taking a small fraction of it
 - so now we are controlling the rate at which v2 is growing , im not allowing it to shoot quixkly, im doing this exponentially decaying average
+- ![](2023-11-08-07-50-10.png)
+- the main takeaway is , we are using an exponentially decaying average, and hence now the denominator is going to grow less aggressively, and hence now the effective learning rate , decays slowly
+- ![](2023-11-08-07-50-35.png)
+- ![](2023-11-08-07-51-18.png)
+- https://youtu.be/ubOy0NPI2cY?t=318
+- RMS prop has quickly reached the minima, because its learning rate is not decaying, its also following this hypotenuse, path, its making updates in the direction of w and b, proportionately , even though the updates in the w are smaller
+- But notice, its oscillating near the minima, why ?
+- because the learning rate is not decaying, its not decaying, because the denominator is not growing as rapidly as it was growing in the case of adagrad
+- The takeaway in the above slide is RMS is faster than Adagrad, because it is less aggressive in decaying the learning rate
+- ![](2023-11-08-07-56-31.png)
+- ![](2023-11-08-07-57-14.png)
+  - the formula should be del Wt**2
+- when we saw the plots, we saw that vt never decreases, it keeps increasing and it saturate, but does not decrease, even thought the derivative has become zero, vt keeps increasing, and it saturates, but it does not decrease , it does not start falling down
+- Lets see what is happening in RMS prop , and why it is not decreasing
+- ![](2023-11-08-08-00-25.png)
+- the derivative starts from -1 , and it start to increase in the negative direction, and then it started decreasing , and became zero , and then we see the oscillations
+- main point is to note vt, it increases and then it starts decreasing also
+- vt can decrease in the case of RMS prop, and why does this happen?
+- red color is derivative, and blue color is vt
+- vt is accumulation of history, ideally it should keep growing , right?
+- how is the accumulation is decreasing?
+- its not because of derivative, because we are taking vt**2
+- ![](2023-11-08-08-55-40.png)
+- the reason for this to happen is because of the exponentially decaying average  ,
+- initially if we look at the sum, 
+- https://youtu.be/ubOy0NPI2cY?t=541
+- at each timestamp, the curve or history changes
+- in case of adagrad
+  - the denominator was always growing, hence there was always a decay in the learning rate, but now since the history can grow and decay it can also become a constant, because now, as all the current gradients are zero, all the  points are becoming closer to zero, and history is becoming constant, and hence the learning rate is becoming constant
+- ![](2023-11-08-09-00-30.png)
